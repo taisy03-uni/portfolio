@@ -16,19 +16,40 @@ body {
     padding: 10px 0;
     text-align: center;
   }
-  
-/* For the flower images container */
+
   .flower-images {
-    display: flex;          /* This enables flexbox */
-    justify-content: center; /* Centers items horizontally */
-    align-items: center;    /* Centers items vertically */
-    gap: 10px;              /* Adds space between items */
-    flex-wrap: wrap;        /* Allows wrapping if screen is too small */
+    display: flex;
+    justify-content: space-evenly; /* Distribute space evenly between items */
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 10px 0;
   }
   
-/* For individual flower images */
   .flower-images img {
-    width: 100px;           /* Adjust size as needed */
+    width: clamp(50px, 6vw, 90px); /* Responsive sizing */
     height: auto;
-    margin: 0;             /* Remove any default margins */
+    margin: 0;
+    flex-shrink: 0;
+  }
+  
+  /* For very large screens - increase gap between flowers */
+  @media (min-width: 1600px) {
+    .flower-images {
+      gap: 4vw; /* Relative gap size */
+    }
+  }
+  
+  /* For medium-large screens */
+  @media (min-width: 1200px) and (max-width: 1599px) {
+    .flower-images {
+      gap: 3vw;
+    }
+  }
+  
+  /* Default gap for smaller screens */
+  @media (max-width: 1199px) {
+    .flower-images {
+      gap: 10px;
+    }
   }
