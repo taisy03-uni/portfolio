@@ -6,35 +6,76 @@ import '../styles/flowers.css';
 import '../styles/buttons.css';
 import { useState, useEffect } from 'react';
 
-const Card = ({ icon, title, description }) => (
+const Card = ({ icon, title, description, link }) => (
   <div style={{
     border: '2px solid #0070f3',
-    padding: '15px',
+    padding: '20px',
     position: 'relative',
-    minHeight: '150px'
+    minHeight: '200px', // Increased from 150px
+    width: '300px', // Fixed width for consistency
+    display: 'flex',
+    flexDirection: 'column',
+    borderRadius: '8px', // Softened corners
+    backgroundColor: 'white', // Better contrast
+    boxShadow: '0 4px 8px rgba(0, 112, 243, 0.1)' // Subtle depth
   }}>
-    <div style={{ display: 'flex', alignItems: 'center' }}>
+    {/* Title row with icon */}
+    <div style={{ 
+      display: 'flex', 
+      alignItems: 'center',
+      marginBottom: '15px',
+      minHeight: '48px' // Slightly larger than icon
+    }}>
       <div style={{ 
-        width: '40px', 
-        height: '40px', 
-        marginRight: '10px',
+        width: '48px', // Increased from 42px
+        height: '48px',
+        marginRight: '12px',
         imageRendering: 'pixelated',
         backgroundImage: `url(${icon})`,
         backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center'
+        backgroundPosition: 'center',
+        flexShrink: 0
       }}></div>
-      <h3 style={{ margin: 0 }}>{title}</h3>
+      <h3 style={{ 
+        margin: 0,
+        fontSize: '1.2rem', // Slightly larger
+        fontWeight: '600',
+        lineHeight: '1.3'
+      }}>{title}</h3>
     </div>
-    <p style={{ marginTop: '10px' }}>{description}</p>
+
+    {/* Description - now fully visible */}
+    <div style={{
+      flexGrow: 1,
+      marginBottom: '15px',
+      overflow: 'visible' // Changed from hidden
+    }}>
+      <p style={{
+        margin: 0,
+        lineHeight: '1.5',
+        fontSize: '1rem'
+      }}>{description}</p>
+    </div>
+
+    {/* Arrow link */}
     <div style={{ 
-      position: 'absolute', 
-      bottom: '10px', 
-      right: '10px',
-      fontSize: '20px'
-    }}>→</div>
+      textAlign: 'right',
+      marginTop: 'auto'
+    }}>
+      <a href={link} style={{ 
+        display: 'inline-block',
+        fontSize: '24px', // Slightly larger arrow
+        textDecoration: 'none',
+        color: '#0070f3', // Matching border color
+        transition: 'transform 0.2s',
+        ':hover': {
+          transform: 'translateX(4px)'
+        }
+      }}>→</a>
+    </div>
   </div>
-);
+)
 
 const cardData = [
   {
@@ -100,13 +141,17 @@ function MainContent({ started, onStart }) {
       </h2>
       
       <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-        gap: '20px',
-        maxWidth: '800px',
-        margin: '0 auto',
-        padding: '20px'
-      }}>
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', // Wider minimum column width
+      gap: '24px', // Increased gap for better spacing
+      width: '100%', // Full width of container
+      maxWidth: '1200px', // Wider maximum width
+      margin: '0 auto',
+      padding: '24px',
+      justifyItems: 'center', // Center cards horizontally
+      alignItems: 'start', // Align cards to top
+      transition: 'all 0.3s ease' // Smooth resizing
+    }}>
         {cardData.map((card, index) => (
           <Card 
             key={index}
