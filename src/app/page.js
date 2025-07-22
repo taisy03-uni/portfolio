@@ -5,6 +5,7 @@ import '../styles/globals.css';
 import '../styles/flowers.css';
 import '../styles/buttons.css';
 import { useState, useEffect } from 'react';
+import { Popup } from '../components/popup'; // Import the Popup component
 
 const tagColors = {
   design: '#FF6B6B',
@@ -15,19 +16,23 @@ const tagColors = {
   sports: '#98D8C8'
 };
 
-const Card = ({ icon, title, description, link, tags }) => (
-  <div style={{
-    border: '2px solid #0070f3',
-    padding: '20px',
-    position: 'relative',
-    minHeight: '220px',
-    width: '300px',
-    display: 'flex',
-    flexDirection: 'column',
-    borderRadius: '8px',
-    backgroundColor: 'white',
-    boxShadow: '0 4px 8px rgba(0, 112, 243, 0.1)'
-  }}>
+const Card = ({ icon, title, description, tags, onClick }) => (
+  <div 
+    style={{
+      border: '2px solid #0070f3',
+      padding: '20px',
+      position: 'relative',
+      minHeight: '220px',
+      width: '300px',
+      display: 'flex',
+      flexDirection: 'column',
+      borderRadius: '8px',
+      backgroundColor: 'white',
+      boxShadow: '0 4px 8px rgba(0, 112, 243, 0.1)',
+      cursor: 'pointer'
+    }}
+    onClick={onClick}
+  >
     {/* Title row with icon */}
     <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px', minHeight: '48px' }}>
       <div style={{ 
@@ -65,13 +70,13 @@ const Card = ({ icon, title, description, link, tags }) => (
           </span>
         ))}
       </div>
-      <a href={link} style={{ 
+      <div style={{ 
         fontSize: '24px',
         textDecoration: 'none',
         color: '#0070f3',
         transition: 'transform 0.2s',
         ':hover': { transform: 'translateX(4px)' }
-      }}>→</a>
+      }}>→</div>
     </div>
   </div>
 );
@@ -81,48 +86,66 @@ const cardData = [
     icon: '/assets/pixel-icons/design.png',
     title: 'Designs',
     description: 'My design projects and visual concepts',
-    link: "https://www.behance.net/taise_sosina",
-    tags: ['design']
+    tags: ['design'],
+    longDescription: 'A collection of my design work including UI/UX projects, graphic designs, and visual concepts. This includes both personal projects and professional work.',
+    date: 'Jun 2023',
+    content: '<div><img src="/sample-design.jpg" style="max-width:100%;border-radius:4px;margin-bottom:15px;"><p>Detailed description of design process and outcomes.</p></div>'
   },
   {
     icon: '/assets/pixel-icons/product.png',
     title: 'Product Management',
     description: 'Product strategy and development',
     link: "https://www.linkedin.com/in/taisiya-s-28a405235/",
-    tags: ['product']
+    tags: ['product'],
+    longDescription: 'A collection of my design work including UI/UX projects, graphic designs, and visual concepts. This includes both personal projects and professional work.',
+    date: 'Jun 2023',
+    content: '<div><img src="/sample-design.jpg" style="max-width:100%;border-radius:4px;margin-bottom:15px;"><p>Detailed description of design process and outcomes.</p></div>'
   },
   {
     icon: '/assets/pixel-icons/code.png',
     title: 'Software Engineering',
     description: 'Coding projects and technical work',
     link: "https://github.com/taise-sosina",
-    tags: ['engineering']
+    tags: ['engineering'],
+    longDescription: 'A collection of my design work including UI/UX projects, graphic designs, and visual concepts. This includes both personal projects and professional work.',
+    date: 'Jun 2023',
+    content: '<div><img src="/sample-design.jpg" style="max-width:100%;border-radius:4px;margin-bottom:15px;"><p>Detailed description of design process and outcomes.</p></div>'
   },
   {
     icon: '/assets/pixel-icons/ai.png',
     title: 'AI Automations',
     description: 'AI-powered solutions and automations',
     link: "https://github.com/taise-sosina",
-    tags: ['ai', 'engineering']
+    tags: ['ai', 'engineering'],
+    longDescription: 'A collection of my design work including UI/UX projects, graphic designs, and visual concepts. This includes both personal projects and professional work.',
+    date: 'Jun 2023',
+    content: '<div><img src="/sample-design.jpg" style="max-width:100%;border-radius:4px;margin-bottom:15px;"><p>Detailed description of design process and outcomes.</p></div>'
   },
   {
     icon: '/assets/pixel-icons/interests.png',
     title: 'Interests',
     description: 'My hobbies and personal interests',
     link: "https://github.com/taise-sosina",
-    tags: ['interests']
+    tags: ['interests'],
+    longDescription: 'A collection of my design work including UI/UX projects, graphic designs, and visual concepts. This includes both personal projects and professional work.',
+    date: 'Jun 2023',
+    content: '<div><img src="/sample-design.jpg" style="max-width:100%;border-radius:4px;margin-bottom:15px;"><p>Detailed description of design process and outcomes.</p></div>'
   },
   {
     icon: '/assets/pixel-icons/sports.png',
     title: 'Sports',
     description: 'My athletic activities and sports',
     link: "https://github.com/taise-sosina",
-    tags: ['sports', 'interests']
+    tags: ['sports', 'interests'],
+    longDescription: 'A collection of my design work including UI/UX projects, graphic designs, and visual concepts. This includes both personal projects and professional work.',
+    date: 'Jun 2023',
+    content: '<div><img src="/sample-design.jpg" style="max-width:100%;border-radius:4px;margin-bottom:15px;"><p>Detailed description of design process and outcomes.</p></div>'
   }
 ];
 
 function MainContent({ started, onStart }) {
   const [activeFilter, setActiveFilter] = useState(null);
+  const [selectedCard, setSelectedCard] = useState(null);
 
   if (!started) {
     return (
@@ -149,6 +172,7 @@ function MainContent({ started, onStart }) {
 
   return (
     <div className="main-content" style={{ padding: '20px', color: 'black' }}>
+      <Popup card={selectedCard} onClose={() => setSelectedCard(null)} />
       <p style={{ color: 'black', textAlign: 'left', marginBottom: '30px' }}>
         Hello, My name is Taise. I have created this portfolio to display my work and interests
       </p>
@@ -214,11 +238,12 @@ function MainContent({ started, onStart }) {
             icon={card.icon}
             title={card.title}
             description={card.description}
-            link={card.link}
             tags={card.tags}
+            onClick={() => setSelectedCard(card)}
           />
         ))}
       </div>
+      
     </div>
   );
 }
