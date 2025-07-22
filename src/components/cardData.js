@@ -18,17 +18,21 @@ export const cardData = [
         // Change content to be a component instead of HTML string
         ContentComponent: () => (
             <div>
+            <p>
                  Below you will find a quick demo of the Rhythm app.
+            </p>
             <div style={{
                 position: 'relative',
-                paddingBottom: '56.25%', // 16:9 aspect ratio
-                height: 0,
-                overflow: 'hidden',
+                overflow: 'auto',
+
                 margin: '20px 0',
                 borderRadius: '8px',
                 backgroundColor: '#000'
               }}>
-             <video controls preload="none" autoPlay>
+             <video controls preload="none" autoPlay style = {{
+                // Set the video to fill the container
+                width: '100%',
+             }}>
                 <source src="/assets/pixel-icons/rhythm/Product Demo.mp4" type="video/mp4" />
                 </video>
             </div>

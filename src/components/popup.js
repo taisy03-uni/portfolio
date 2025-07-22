@@ -136,7 +136,7 @@ export const Popup = ({ card, onClose }) => {
         {/* Content area */}
         <div style={{
           borderTop: '1px solid #eee',
-          paddingTop: '20px'
+          paddingTop: '20px',
         }}>
           {card.ContentComponent ? (
             // Render as component
