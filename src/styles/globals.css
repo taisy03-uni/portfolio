@@ -7,5 +7,26 @@ body {
   height: 100vh;
   background-color: black;
   color: hsl(49, 100%, 98%);
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Press Start 2P';
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.main-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.header-links a {
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.header-links a:hover {
+  opacity: 0.8;
 }
