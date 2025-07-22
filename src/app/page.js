@@ -21,8 +21,10 @@ export default function Home() {
 
   return (
     <>
-      <main>
+      <header style={{ backgroundColor: 'black', color: 'white' }}>
         <h1>Taise Sosina</h1>
+      </header>
+      <main>
         <p style={{ textAlign: 'center' }}>Welcome to my portfolio</p>
         <div className="container">
           <button className="start-button" id="startBtn">Start</button>
