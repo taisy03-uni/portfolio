@@ -53,7 +53,7 @@ export const Popup = ({ card, onClose }) => {
         zIndex: 1000,
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center', //the whole popup is centered
         padding: '20px',
         overflowY: 'auto'
       }}
@@ -115,11 +115,6 @@ export const Popup = ({ card, onClose }) => {
           marginBottom: '30px',
           gap: '20px'
         }}>
-          <div style={{ flex: 2 }}>
-            <p style={{ margin: 0, fontSize: '1.1rem', lineHeight: '1.6' }}>
-              {card.longDescription || card.description}
-            </p>
-          </div>
           <div style={{ flex: 1 }}>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
               {card.tags.map((tag, index) => (

@@ -19,15 +19,10 @@ export const cardData = [
         // Change content to be a component instead of HTML string
         ContentComponent: () => (
           <div>
-            <ReactPlayer
-              //url="/assets/pixel-icons/rhythm/Product Demo.mp4" 
-              url="https://www.youtube.com/watch?v=pzBi1nwDn8U&ab_channel=MrBeast"
-              controls
-              width="100%"
-              height="auto"
-              style={{ maxWidth: '100%', borderRadius: '4px', marginBottom: '15px' }}
-            />
-            <p>Detailed description of design process and outcomes.</p>
+            Below you will find a quick demo of the Rhythm app.
+             <video controls preload="none" autoPlay>
+                <source src="/assets/pixel-icons/rhythm/Product Demo.mp4" type="video/mp4" />
+                </video>
             <p>
               <a 
                 href="/assets/pixel-icons/rhythm/241118_Rhythm Pitch Deck.pdf" 
