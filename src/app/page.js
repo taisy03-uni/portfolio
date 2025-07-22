@@ -143,8 +143,8 @@ export default function Home() {
           {started && (
             <div className="header-links">
               <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" style={{ color: 'white', margin: '0 10px' }}>CV</a>
-              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" style={{ color: 'white', margin: '0 10px' }}>LinkedIn</a>
-              <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" style={{ color: 'white', margin: '0 10px' }}>GitHub</a>
+              <a href="https://www.linkedin.com/in/taisiya-s-28a405235/" target="_blank" rel="noopener noreferrer" style={{ color: 'white', margin: '0 10px' }}>LinkedIn</a>
+              <a href="mailto:t.k.sosina@gmail.com" target="_blank" rel="noopener noreferrer" style={{ color: 'white', margin: '0 10px' }}>Email</a>
             </div>
           )}
         </nav>
