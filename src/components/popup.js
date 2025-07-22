@@ -1,14 +1,6 @@
 "use client";
 import { useState } from 'react';
-
-const tagColors = {
-  design: '#FF6B6B',
-  product: '#4ECDC4',
-  engineering: '#45B7D1',
-  ai: '#A37AFC',
-  interests: '#FFA07A',
-  sports: '#98D8C8'
-};
+import { tagColors } from './cardData';
 
 export const Popup = ({ card, onClose }) => {
   if (!card) return null;
