@@ -1,0 +1,58 @@
+.container {
+    text-align: center;
+}
+
+.start-button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+    background-color: hsl(49, 100%, 98%); /* Bright green color for the pixel effect */
+    border: none;
+    padding: 20px 40px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 3px solid #000; /* Pixelated border */
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.start-button:hover {
+    background-color: hsl(173, 100%, 53%);
+    box-shadow: 0 0 15px hsl(173, 100%, 53%);
+}
+
+/* Style for the button */
+#startBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Pixel overlay */
+#pixelOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 0, 0);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Pixel effect */
+.pixel-out {
+    opacity: 0;
+    animation: pixelate 1s forwards;
+}
+
+@keyframes pixelate {
+    0% {
+        filter: none;
+    }
+    100% {
+        filter: url(#pixelate); /* Use an SVG filter for pixelation */
+    }
+}

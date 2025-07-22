@@ -1,0 +1,11 @@
+/* src/styles/globals.css */
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: black;
+  color: hsl(49, 100%, 98%);
+  font-family: 'Press Start 2P', cursive;
+}
