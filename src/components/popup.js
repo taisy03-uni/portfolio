@@ -1,41 +1,82 @@
 "use client";
-import { useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { tagColors } from './cardData';
+import ReactPlayer from 'react-player';
 
 export const Popup = ({ card, onClose }) => {
+  const contentRef = useRef(null);
+  const videoRefs = useRef([]);
+
+  // Handle video elements when popup opens/closes
+  useEffect(() => {
+    if (!card || !contentRef.current) return;
+
+    // Find all video elements and configure them
+    videoRefs.current = Array.from(contentRef.current.querySelectorAll('video'));
+    
+    videoRefs.current.forEach(video => {
+      video.setAttribute('preload', 'none');
+      video.setAttribute('playsinline', '');
+      video.muted = true; // Helps with autoplay restrictions
+    });
+
+    return () => {
+      // Clean up videos when popup closes
+      videoRefs.current.forEach(video => {
+        if (video) {
+          video.pause();
+          video.currentTime = 0;
+          video.removeAttribute('src');
+          video.load();
+        }
+      });
+      videoRefs.current = [];
+    };
+  }, [card]);
+
   if (!card) return null;
 
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: 'rgba(0, 0, 0, 0.8)',
-      zIndex: 1000,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '20px',
-      overflowY: 'auto'
-    }}>
-      <div style={{
-        backgroundColor: 'white',
-        borderRadius: '8px',
-        padding: '30px',
-        maxWidth: '900px',
-        width: '100%',
-        position: 'relative',
-        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)'
-      }}>
+    <div 
+      className="popup-overlay"
+      onClick={(e) => {
+        // Close when clicking outside content
+        if (e.target === e.currentTarget) onClose();
+      }}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        zIndex: 1000,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '20px',
+        overflowY: 'auto'
+      }}
+    >
+      <div 
+        className="popup-content"
+        style={{
+          backgroundColor: 'white',
+          borderRadius: '8px',
+          padding: '30px',
+          maxWidth: '900px',
+          width: '100%',
+          position: 'relative',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)'
+        }}
+      >
         {/* Close button */}
         <button 
           onClick={onClose}
           style={{
             position: 'absolute',
             top: '15px',
-            left: '15px',
+            right: '15px',
             background: 'none',
             border: 'none',
             fontSize: '24px',
@@ -52,7 +93,7 @@ export const Popup = ({ card, onClose }) => {
           justifyContent: 'space-between',
           alignItems: 'center',
           marginBottom: '20px',
-          paddingRight: '30px' // To account for close button
+          paddingRight: '30px'
         }}>
           <h2 style={{ margin: 0, fontSize: '1.8rem' }}>{card.title}</h2>
           {card.date && (
@@ -97,14 +138,23 @@ export const Popup = ({ card, onClose }) => {
           </div>
         </div>
 
-        {/* Content area for images/videos/text */}
+        {/* Content area */}
         <div style={{
           borderTop: '1px solid #eee',
           paddingTop: '20px'
         }}>
-          {card.content ? (
-            <div dangerouslySetInnerHTML={{ __html: card.content }} />
+          {card.ContentComponent ? (
+            // Render as component
+            <card.ContentComponent />
+          ) : card.content ? (
+            // Render as HTML
+            <div 
+              ref={contentRef}
+              dangerouslySetInnerHTML={{ __html: card.content }}
+              onClick={(e) => e.stopPropagation()}
+            />
           ) : (
+            // Fallback content
             <div style={{
               display: 'flex',
               alignItems: 'center',

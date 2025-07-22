@@ -1,3 +1,5 @@
+import ReactPlayer from 'react-player';
+
 export const tagColors = {
     design: '#FF6B6B',
     product: '#4ECDC4',
@@ -8,15 +10,37 @@ export const tagColors = {
   };
 
 export const cardData = [
-    {
-      icon: '/assets/pixel-icons/design.png',
-      title: 'Designs',
-      description: 'My design projects and visual concepts',
-      tags: ['design'],
-      longDescription: 'A collection of my design work including UI/UX projects, graphic designs, and visual concepts. This includes both personal projects and professional work.',
-      date: 'Jun 2023',
-      content: '<div><img src="/sample-design.jpg" style="max-width:100%;border-radius:4px;margin-bottom:15px;"><p>Detailed description of design process and outcomes.</p></div>'
-    },
+    {icon: '/assets/pixel-icons/rhythm/rhythm.png',
+        title: 'Rhythm',
+        description: 'Interactive Figma Design of a Cycle-Syncing Exercise App',
+        tags: ['design'],
+        longDescription: 'A collection of my design work...',
+        date: 'September 2024',
+        // Change content to be a component instead of HTML string
+        ContentComponent: () => (
+          <div>
+            <ReactPlayer
+              //url="/assets/pixel-icons/rhythm/Product Demo.mp4" 
+              url="https://www.youtube.com/watch?v=pzBi1nwDn8U&ab_channel=MrBeast"
+              controls
+              width="100%"
+              height="auto"
+              style={{ maxWidth: '100%', borderRadius: '4px', marginBottom: '15px' }}
+            />
+            <p>Detailed description of design process and outcomes.</p>
+            <p>
+              <a 
+                href="/assets/pixel-icons/rhythm/241118_Rhythm Pitch Deck.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ color: '#0066cc', textDecoration: 'underline' }}
+              >
+                View Pitch Deck
+              </a>
+            </p>
+          </div>
+        )
+      },
     {
       icon: '/assets/pixel-icons/product.png',
       title: 'Product Management',
@@ -25,7 +49,7 @@ export const cardData = [
       tags: ['product'],
       longDescription: 'A collection of my design work including UI/UX projects, graphic designs, and visual concepts. This includes both personal projects and professional work.',
       date: 'Jun 2023',
-      content: '<div><img src="/sample-design.jpg" style="max-width:100%;border-radius:4px;margin-bottom:15px;"><p>Detailed description of design process and outcomes.</p></div>'
+      content: ''
     },
     {
       icon: '/assets/pixel-icons/code.png',

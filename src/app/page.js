@@ -32,7 +32,6 @@ const Card = ({ icon, title, description, tags, onClick }) => (
         width: '48px', 
         height: '48px',
         marginRight: '12px',
-        imageRendering: 'pixelated',
         backgroundImage: `url(${icon})`,
         backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
