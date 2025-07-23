@@ -136,16 +136,14 @@ export const Popup = ({ card, onClose }) => {
         {/* Content area */}
         <div style={{
           borderTop: '1px solid #eee',
-          paddingTop: '20px',
-          textAlign: "left",
-          fontFamily: 'Arial, sans-serif',
+          paddingTop: '20px'
         }}>
           {card.ContentComponent ? (
             // Render as component
             <card.ContentComponent />
           ) : card.content ? (
             // Render as HTML
-            <div 
+            <div style = {{textAlign: "left", fontFamily: 'Arial, sans-serif'}}
               ref={contentRef}
               dangerouslySetInnerHTML={{ __html: card.content }}
               onClick={(e) => e.stopPropagation()}
@@ -159,11 +157,8 @@ export const Popup = ({ card, onClose }) => {
               minHeight: '300px',
               backgroundColor: '#f9f9f9',
               borderRadius: '4px',
-              textAlign: "left",
-              fontFamily: 'Arial, sans-serif',
-
             }}>
-              <p style={{ color: '#999' }}>Additional content would appear here</p>
+              <p style={{ color: '#999',  }}>Additional content would appear here</p>
             </div>
           )}
         </div>

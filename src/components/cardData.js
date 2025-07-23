@@ -48,14 +48,14 @@ export const cardData = [
                 textAlign: 'left',}}
             >
             After Initial Market Research, there was not a lot of interest in the app, so we decided to stop the idea. Below was the pitch deck we used to show the value proposition. 
-            Although this project did not go very far, it was a great experience on how you can validate an idea quickly before investing too much time and resources into it. 
+             Although this project did not go very far, it was a great experience on how you can validate an idea quickly before investing too much time and resources into it. 
                 </p>
             <p> 
               <a 
                 href="/assets/pixel-icons/rhythm/241118_Rhythm Pitch Deck.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                style={{ color: '#0066cc', textDecoration: 'underline', }}
+                style={{ color: '#0066cc', textDecoration: 'underline'}}
               >
                 View Pitch Deck
               </a>
