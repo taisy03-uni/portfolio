@@ -137,6 +137,8 @@ export const Popup = ({ card, onClose }) => {
         <div style={{
           borderTop: '1px solid #eee',
           paddingTop: '20px',
+          textAlign: "left",
+          fontFamily: 'Arial, sans-serif',
         }}>
           {card.ContentComponent ? (
             // Render as component
@@ -156,7 +158,10 @@ export const Popup = ({ card, onClose }) => {
               justifyContent: 'center',
               minHeight: '300px',
               backgroundColor: '#f9f9f9',
-              borderRadius: '4px'
+              borderRadius: '4px',
+              textAlign: "left",
+              fontFamily: 'Arial, sans-serif',
+
             }}>
               <p style={{ color: '#999' }}>Additional content would appear here</p>
             </div>

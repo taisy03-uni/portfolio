@@ -25,7 +25,7 @@ export const cardData = [
             }}>
                 Rhythm is a cycle-syncing app that helps women do the right type of exercise 
                 at the right time of their cycle. The app uses data from the user to provide personalized exercise recommendations, helping them optimize their workouts based on their menstrual cycle. 
-                Below is a demo that was created to get feedback on the intial idea
+                Below is a demo that I created in Figma to get feedback on the intial idea:
             </p>
             <div style={{
                 position: 'relative',
@@ -42,12 +42,20 @@ export const cardData = [
                 <source src="/assets/pixel-icons/rhythm/Product Demo.mp4" type="video/mp4" />
                 </video>
             </div>
-            <p>
+            <p style = {{
+                fontFamily: 'Arial, sans-serif',
+                //move the text to the left
+                textAlign: 'left',}}
+            >
+            After Initial Market Research, there was not a lot of interest in the app, so we decided to stop the idea. Below was the pitch deck we used to show the value proposition. 
+            Although this project did not go very far, it was a great experience on how you can validate an idea quickly before investing too much time and resources into it. 
+                </p>
+            <p> 
               <a 
                 href="/assets/pixel-icons/rhythm/241118_Rhythm Pitch Deck.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                style={{ color: '#0066cc', textDecoration: 'underline' }}
+                style={{ color: '#0066cc', textDecoration: 'underline', }}
               >
                 View Pitch Deck
               </a>
@@ -61,13 +69,13 @@ export const cardData = [
       description: 'First ever predictive AI model for medical cannabis.',
       tags: ['product', "ai", 'engineering'],
       date: 'Jan 2025 - March 2025',
-      content: 'CannabisAI was a groundbreaking project that developed the first predictive AI model for medical cannabis. This innovative solution aimed to enhance patient care by providing personalized recommendations based on individual health data and preferences. The project involved extensive research, data analysis, and collaboration with healthcare professionals to ensure accuracy and reliability.',
+      content: 'CannabisAI was a groundbreaking project that developed the first predictive AI model for medical cannabis.',
     },
     {
       icon: '/assets/pixel-icons/code.png',
       title: 'Rag Tool for legal research',
       description: 'Coding projects and technical work',
-      link: "https://github.com/taise-sosina",
+      data: "May 2025 - Present",
       tags: ['engineering', 'ai'],
       content: 'For my Masters thesis I am working on a RAG tool for calse law research. This tool is designed to streamline the process of legal research by utilizing advanced AI techniques to analyze and retrieve relevant case law efficiently. The project involves developing algorithms that can understand legal language, context, and nuances, making it easier for legal professionals to access pertinent information quickly.',
     },

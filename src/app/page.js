@@ -161,7 +161,8 @@ function MainContent({ started, onStart }) {
         padding: '24px',
         justifyItems: 'center',
         alignItems: 'start',
-        transition: 'all 0.3s ease'
+        transition: 'all 0.3s ease',
+        textAlign: 'left'
       }}>
         {filteredCards.map((card, index) => (
           <Card 
