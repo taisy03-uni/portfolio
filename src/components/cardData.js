@@ -141,7 +141,6 @@ export const cardData = [
       description: 'First ever predictive AI model for medical cannabis.',
       tags: ['product', "ai", 'engineering'],
       date: 'Jan 2025 - March 2025',
-      content: 'CannabisAI was a groundbreaking project that developed the first predictive AI model for medical cannabis.',
       ContentComponent: () => {
         const cannabisAIImages = [
             '/assets/pixel-icons/cannabisAI/intial/1.png',
@@ -165,7 +164,6 @@ export const cardData = [
                 to develop the first ever predictive AI model front-end for medical cannabis. Using their dataset of over 60,000 patients,
                 we trained an RNN model to take in EQ-5D-5L scores (a standardized measure of health-related quality of life), past prescriptions and patient data to predict future scores.
                 We then created a front-end in CSS, JS and HTML that would run locally in your browser (to account for data privacy) and packaged it to sit as a desktop app. 
-
             </p>
             <p>
                 Demo
@@ -184,7 +182,19 @@ export const cardData = [
                 Initial Designs
             </p>
             <ImageGrid imagePaths={cannabisAIImages} />
-
+            <p style={contentStyles.paragraph}>
+            Through out the whole process we were able to work with clinicians to get their feedback and most usefull features and design changes. 
+            Hence why the intial designs look so different from the final version. We were also able to do two rounds of usability testing. 
+            You can see some more in-depth information on the whole project in the pdf below. 
+            </p>
+            <a 
+                  href="/assets/pixel-icons/cannabisAI/slides.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={contentStyles.link}
+                >
+                  View Presentation
+                </a>
         </div>
       )}
     },
