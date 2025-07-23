@@ -1,6 +1,7 @@
 import ReactPlayer from 'react-player';
 import React from 'react';
 import ImageGallery from 'react-image-gallery';
+import Image from 'next/image';
 import 'react-image-gallery/styles/css/image-gallery.css';
 
 export const tagColors = {
@@ -65,7 +66,7 @@ export const tagColors = {
     return (
       <div style={styles.imageGrid}>
         {flattenedPaths.map((path) => (
-          <img
+          <Image
             key={path}
             src={path}
             alt=""
@@ -159,7 +160,7 @@ export const cardData = [
         return (
         <div>
             <p style={contentStyles.paragraph}>
-                CannabisAI was created as a group project at Imperial College London during my Master's. 
+                CannabisAI was created as a group project at Imperial College London during my Masters. 
                 In a group of 5 we worked with CuraLeaf, one of the largest medical cannabis companies in the UK, 
                 to develop the first ever predictive AI model front-end for medical cannabis. Using their dataset of over 60,000 patients,
                 we trained an RNN model to take in EQ-5D-5L scores (a standardized measure of health-related quality of life), past prescriptions and patient data to predict future scores.
@@ -207,7 +208,7 @@ export const cardData = [
       ContentComponent: () => (
         <div>
           <p style={contentStyles.paragraph}>
-            I am currently working on my Master's thesis project, which involves creating a Retrieval-Augmented Generation (RAG) tool for legal research.
+            I am currently working on my Master&aposs thesis project, which involves creating a Retrieval-Augmented Generation (RAG) tool for legal research.
             I have obtained a licence from the National Archives to use the UK case law data, which consists of over 60,000 cases. I am using Pinecone and OpenAI to build this tool.
             Additionally, I am developing a front-end using Typescript and Next.js to allow users to interact with the tool and retrieve relevant case law information. 
           </p>
@@ -230,7 +231,7 @@ export const cardData = [
         ContentComponent: () => (
             <div>
             <p style={contentStyles.paragraph}>
-            I built an automated WhatsApp responder using WhatsApp Web and OpenAI's API. First, 
+            I built an automated WhatsApp responder using WhatsApp Web and OpenAI&aposs API. First, 
             I exported my complete chat history as JSON and used it to fine-tune a GPT-3.5 model so it would mimic my writing style. 
             I also processed these conversations to extract structured data about my contacts, categorising relationships (friends, family, colleagues), 
             noting important details about them, and documenting their preferences. 

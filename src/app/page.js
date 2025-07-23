@@ -7,7 +7,7 @@ import '../styles/buttons.css';
 import { useState, useEffect } from 'react';
 import { Popup } from '../components/popup'; 
 import { cardData, tagColors } from '../components/cardData';
-
+import Image from 'next/image';
 
 const Card = ({ icon, title, description, tags, onClick }) => (
   <div 
@@ -219,7 +219,7 @@ export default function Home() {
       <footer className='footer'>
         <div className="flower-images">
           {[1, 2, 3, 4, 5, 6].map((num) => (
-            <img 
+            <Image 
               key={num} 
               src={`/assets/flowers/flower${num}${showVariantA ? 'a' : 'b'}.png`} 
               alt={`Flower ${num}`}
