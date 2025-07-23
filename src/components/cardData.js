@@ -200,33 +200,48 @@ export const cardData = [
     },
     {
       icon: '/assets/pixel-icons/code.png',
-      title: 'Rag Tool for legal research',
-      description: 'Coding projects and technical work',
+      title: 'Legal Research Helper',
+      description: 'RAG tool for case law retreival using UK case law data',
       data: "May 2025 - Present",
       tags: ['engineering', 'ai'],
-      content: 'For my Masters thesis I am working on a RAG tool for calse law research. This tool is designed to streamline the process of legal research by utilizing advanced AI techniques to analyze and retrieve relevant case law efficiently. The project involves developing algorithms that can understand legal language, context, and nuances, making it easier for legal professionals to access pertinent information quickly.',
+      ContentComponent: () => (
+        <div>
+          <p style={contentStyles.paragraph}>
+            I am currently working on my Master's thesis project, which involves creating a Retrieval-Augmented Generation (RAG) tool for legal research.
+            I have obtained a licence from the National Archives to use the UK case law data, which consists of over 60,000 cases. I am using Pinecone and OpenAI to build this tool.
+            Additionally, I am developing a front-end using Typescript and Next.js to allow users to interact with the tool and retrieve relevant case law information. 
+          </p>
+        </div>
+      )
     },
     {
-      icon: '/assets/pixel-icons/ai.png',
-      title: 'Whatsapp Clone',
-      description: 'AI-powered WhatsApp clone with advanced features',
-      tags: ['ai', 'engineering'],
-      content: 'In the Process'
-    },
+        icon: '/assets/pixel-icons/interests.png',
+        title: 'Mt Ararat',
+        description: 'Hiking the tallest mountain in Turkey',
+        tags: ['interests', 'sports'],
+        data: "Sep 2024",
+        content: 'I had the incredible opportunity to hike Mt. Ararat, standing at  5,137 meters (16,854 feet), as the tallest mountain in Turkey. This challenging track not only tested my physical endurance but also offered breathtaking views and a deep connection with nature. It is also a site of significant historical and cultural importance with many legeands claiming it to be the resting place of Noah\'s Ark.'
+      },
     {
-      icon: '/assets/pixel-icons/interests.png',
-      title: 'Mt Ararat',
-      description: 'Hiking the tallest mountain in Turkey',
-      tags: ['interests', 'sports'],
-      data: "Sep 2024",
-      content: 'I had the incredible opportunity to hike Mt. Ararat, the tallest mountain in Turkey. This challenging trek not only tested my physical endurance but also offered breathtaking views and a deep connection with nature. The experience was both exhilarating and humbling, as I stood at the summit, surrounded by the majestic beauty of the landscape. Standing at 5,137 meters (16,854 feet), Mt. Ararat is not only the highest peak in Turkey but also a site of significant historical and cultural importance. The hike was a blend of adventure and spirituality, as I reflected on the legends surrounding this iconic mountain, including its association with Noah\'s Ark. The journey to the summit was arduous, requiring careful planning and preparation, but the sense of accomplishment upon reaching the top was unparalleled.',
-    },
-    {
-      icon: '/assets/pixel-icons/sports.png',
-      title: 'Sports',
-      description: 'My athletic activities and sports',
-      tags: ['sports', 'interests'],
-      date: 'Jun 2023',
-      content: 'Rowing W2 team'
+        icon: '/assets/pixel-icons/ai.png',
+        title: 'Whatsapp Clone',
+        description: 'AI-powered WhatsApp digital assitant',
+        tags: ['ai', 'engineering'],
+        ContentComponent: () => (
+            <div>
+            <p style={contentStyles.paragraph}>
+            I built an automated WhatsApp responder using WhatsApp Web and OpenAI's API. First, 
+            I exported my complete chat history as JSON and used it to fine-tune a GPT-3.5 model so it would mimic my writing style. 
+            I also processed these conversations to extract structured data about my contacts, categorising relationships (friends, family, colleagues), 
+            noting important details about them, and documenting their preferences. 
+            The system works through a Chrome extension that monitors incoming messages using real-time DOM observation. 
+            When a new message arrives, it gets saved to a local database alongside previous conversations. 
+            Every few messages, a background process analyzes the conversation thread to update what it knows about that contact. 
+            This context then gets combined with the current message to generate personalized responses through the OpenAI API, 
+            while maintaining natural pacing with rate-limiting to avoid flooding the chat. 
+            Some manual curation was needed to filter out repetitive patterns during the training phase.
+            </p>    
+            </div>
+        )
     }
   ];
