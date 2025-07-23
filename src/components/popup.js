@@ -50,13 +50,14 @@ export const Popup = ({ card, onClose }) => {
         right: 0,
         bottom: 0,
         backgroundColor: 'rgba(0, 0, 0, 0.8)',
-        zIndex: 1000,
+        zIndex: 10,
         display: 'flex',
         alignItems: 'flex-start', // Changed from 'center' to 'flex-start'
         justifyContent: 'center', //the whole popup is centered
-        padding: '20px',
+        padding: '50px',
+        marginBottom: '80px',
         overflowY: 'auto',
-        overscrollBehavior: 'contain' // Add this to prevent page scroll behind
+        overscrollBehavior: 'contain' 
       }}
     >
       <div 

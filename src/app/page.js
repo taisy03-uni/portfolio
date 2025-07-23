@@ -217,14 +217,14 @@ export default function Home() {
           maxWidth: '100%',       // Prevents overflow
           boxSizing: 'border-box' ,
           position: 'relative',
-          zIndex: 1001,
+          zIndex: 6,
         }}>
           <h1 style={{ fontSize: '1.2rem' }}>Taise Sosina</h1>
           {started && (
             <nav style={{ display: 'flex', gap: '10px' }}>
-              <a href="/cv.pdf" style={{ color: 'white' }}>CV</a>
-              <a href="https://linkedin.com/in/you" style={{ color: 'white' }}>LinkedIn</a>
-              <a href="mailto:you@email.com" style={{ color: 'white' }}>Email</a>
+              <a href="/my-app/public/assets/Taisiya Sosina CV.pdf.pdf" style={{ color: 'white' }}>CV</a>
+              <a href="https://www.linkedin.com/in/taisiya-s-28a405235/" style={{ color: 'white' }}>LinkedIn</a>
+              <a href="mailto:t.k.sosina@gmail.com" style={{ color: 'white' }}>Email</a>
             </nav>
           )}
         </header>
