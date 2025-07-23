@@ -108,11 +108,11 @@ function MainContent({ started, onStart }) {
         Hello, My name is Taise. I have created this portfolio to display my work and interests
       </p>
       
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+      <div style={{ display: 'flex',gap: '20px' , justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: "wrap"}}>
         <h2 style={{ color: 'black', textDecoration: 'underline', margin: 0 }}>
           Navigation
         </h2>
-        <div style={{ display: 'flex', gap: '10px' }}>
+        <div style={{ display: 'flex', gap: '10px', flexWrap: "wrap" }}>
           <button 
             onClick={() => setActiveFilter(null)}
             style={{

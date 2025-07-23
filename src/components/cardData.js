@@ -18,8 +18,14 @@ export const cardData = [
         // Change content to be a component instead of HTML string
         ContentComponent: () => (
             <div>
-            <p>
-                 Below you will find a quick demo of the Rhythm app.
+            <p style = {{
+                fontFamily: 'Arial, sans-serif',
+                //move the text to the left
+                textAlign: 'left',
+            }}>
+                Rhythm is a cycle-syncing app that helps women do the right type of exercise 
+                at the right time of their cycle. The app uses data from the user to provide personalized exercise recommendations, helping them optimize their workouts based on their menstrual cycle. 
+                Below is a demo that was created to get feedback on the intial idea
             </p>
             <div style={{
                 position: 'relative',
