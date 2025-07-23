@@ -184,6 +184,7 @@ function MainContent({ started, onStart }) {
 export default function Home() {
   const [showVariantA, setShowVariantA] = useState(true);
   const [started, setStarted] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -194,11 +195,16 @@ export default function Home() {
   }, []);
 
   const handleStart = () => {
-    setStarted(true);
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setStarted(true);
+      setIsTransitioning(false);
+    }, 2000); // Match this with animation duration
   };
 
   return (
     <>
+      {isTransitioning && <div className="pixel-transition" />}
       <header style={{ 
           backgroundColor: 'black',
           color: 'white',
@@ -208,7 +214,9 @@ export default function Home() {
           padding: '0 20px',
           width: '100%',
           maxWidth: '100%',       // Prevents overflow
-          boxSizing: 'border-box' // Includes padding in width
+          boxSizing: 'border-box' ,
+          position: started ? 'static' : 'relative',
+          zIndex: 1001,
         }}>
           <h1 style={{ fontSize: '1.2rem' }}>Taise Sosina</h1>
           {started && (
@@ -219,7 +227,9 @@ export default function Home() {
             </nav>
           )}
         </header>
-      <main style={{ backgroundColor: started ? 'hsl(49, 100%, 98%)' : 'transparent',minHeight: '100vh', padding: "20px", paddingBottom: "120px" }}>
+      <main style={{ backgroundColor: started ? 'hsl(49, 100%, 98%)' : 'transparent',minHeight: '100vh', padding: "20px", paddingBottom: "120px",position: 'relative' }}
+            className={isTransitioning ? 'pixel-mask' : ''}
+        >
         <MainContent started={started} onStart={handleStart} />
       </main>
 

@@ -30,3 +30,36 @@ body {
 .header-links a:hover {
   opacity: 0.8;
 }
+
+/* Pixel transition animation */
+@keyframes pixelate {
+  0% {
+    clip-path: polygon(
+      0% 100%, 100% 100%, 100% 100%, 0% 100%
+    );
+  }
+  100% {
+    clip-path: polygon(
+      0% 0%, 100% 0%, 100% 100%, 0% 100%
+    );
+  }
+}
+
+.pixel-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1000;
+  animation: pixelate 2s ease-in-out forwards;
+  pointer-events: none;
+}
+
+.pixel-mask {
+  clip-path: polygon(
+    0% 100%, 100% 100%, 100% 100%, 0% 100%
+  );
+  animation: pixelate 2s ease-in-out forwards;
+}
