@@ -22,7 +22,8 @@ const Card = ({ icon, title, description, tags, onClick }) => (
       borderRadius: '8px',
       backgroundColor: 'white',
       boxShadow: '0 4px 8px rgba(0, 112, 243, 0.1)',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      zIndex: 2,
     }}
     onClick={onClick}
   >
@@ -196,8 +197,8 @@ export default function Home() {
 
   const handleStart = () => {
     setIsTransitioning(true);
+    setStarted(true);
     setTimeout(() => {
-      setStarted(true);
       setIsTransitioning(false);
     }, 2000); // Match this with animation duration
   };
@@ -215,7 +216,7 @@ export default function Home() {
           width: '100%',
           maxWidth: '100%',       // Prevents overflow
           boxSizing: 'border-box' ,
-          position: started ? 'static' : 'relative',
+          position: 'relative',
           zIndex: 1001,
         }}>
           <h1 style={{ fontSize: '1.2rem' }}>Taise Sosina</h1>
@@ -227,7 +228,7 @@ export default function Home() {
             </nav>
           )}
         </header>
-      <main style={{ backgroundColor: started ? 'hsl(49, 100%, 98%)' : 'transparent',minHeight: '100vh', padding: "20px", paddingBottom: "120px",position: 'relative' }}
+      <main style={{ backgroundColor: started ? 'hsl(49, 100%, 98%)' : 'transparent',minHeight: '100vh', padding: "20px", paddingBottom: "120px",position: 'relative', zIndex: 5 }}
             className={isTransitioning ? 'pixel-mask' : ''}
         >
         <MainContent started={started} onStart={handleStart} />

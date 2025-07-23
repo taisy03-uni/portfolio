@@ -51,8 +51,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: hsl(49, 100%, 98%);
-  z-index: 1000;
+  background-color: hsl(0, 0%, 0%);
+  z-index: 1;
   animation: pixelate 2s ease-in-out forwards;
   pointer-events: none;
   --pixel-size: 10px;
