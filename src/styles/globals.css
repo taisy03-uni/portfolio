@@ -46,15 +46,15 @@ body {
 }
 
 .pixel-transition {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  z-index: 1000;
-  animation: pixelate 2s ease-in-out forwards;
-  pointer-events: none;
+  /* ... existing styles ... */
+  --pixel-size: 10px;
+  background-image: 
+    linear-gradient(45deg, hsl(49, 100%, 98%) 25%, transparent 25%),
+    linear-gradient(-45deg, hsl(49, 100%, 98%) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, hsl(49, 100%, 98%)75%),
+    linear-gradient(-45deg, transparent 75%, hsl(49, 100%, 98%)75%);
+  background-size: calc(var(--pixel-size) * 2) calc(var(--pixel-size) * 2);
+  background-position: 0 0, 0 var(--pixel-size), var(--pixel-size) calc(-1 * var(--pixel-size)), calc(-1 * var(--pixel-size)) 0;
 }
 
 .pixel-mask {
