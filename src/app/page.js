@@ -199,18 +199,26 @@ export default function Home() {
 
   return (
     <>
-      <header style={{ backgroundColor: 'black', color: 'white', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 20px' }}>
-        <h1>Taise Sosina</h1>
-        <nav>
+      <header style={{ 
+          backgroundColor: 'black',
+          color: 'white',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          padding: '0 20px',
+          width: '100%',
+          maxWidth: '100%',       // Prevents overflow
+          boxSizing: 'border-box' // Includes padding in width
+        }}>
+          <h1 style={{ fontSize: '1.2rem' }}>Taise Sosina</h1>
           {started && (
-            <div className="header-links">
-              <a href="/assets/Taisiya Sosina CV.pdf" target="_blank" rel="noopener noreferrer" style={{ color: 'white', margin: '0 10px' }}>CV</a>
-              <a href="https://www.linkedin.com/in/taisiya-s-28a405235/" target="_blank" rel="noopener noreferrer" style={{ color: 'white', margin: '0 10px' }}>LinkedIn</a>
-              <a href="mailto:t.k.sosina@gmail.com" target="_blank" rel="noopener noreferrer" style={{ color: 'white', margin: '0 10px' }}>Email</a>
-            </div>
+            <nav style={{ display: 'flex', gap: '10px' }}>
+              <a href="/cv.pdf" style={{ color: 'white' }}>CV</a>
+              <a href="https://linkedin.com/in/you" style={{ color: 'white' }}>LinkedIn</a>
+              <a href="mailto:you@email.com" style={{ color: 'white' }}>Email</a>
+            </nav>
           )}
-        </nav>
-      </header>
+        </header>
       <main style={{ backgroundColor: started ? 'hsl(49, 100%, 98%)' : 'transparent',minHeight: '100vh', padding: "20px", paddingBottom: "120px" }}>
         <MainContent started={started} onStart={handleStart} />
       </main>
