@@ -103,7 +103,7 @@ function MainContent({ started, onStart }) {
     : cardData;
 
   return (
-    <div className="main-content" style={{ padding: '20px', color: 'black' }}>
+    <div className="main-content" style={{color: 'black' }}>
       <Popup card={selectedCard} onClose={() => setSelectedCard(null)} />
       <p style={{ color: 'black', textAlign: 'left', marginBottom: '30px' }}>
         Hello, My name is Taise. I have created this portfolio to display my work and interests
