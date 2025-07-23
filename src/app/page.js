@@ -238,7 +238,7 @@ export default function Home() {
       <footer className='footer'>
         <div className="flower-images">
           {[1, 2, 3, 4, 5, 6].map((num) => (
-            <Image 
+            <Image
               key={num} 
               src={`/assets/flowers/flower${num}${showVariantA ? 'a' : 'b'}.png`} 
               alt={`Flower ${num}`}
