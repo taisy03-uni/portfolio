@@ -6,6 +6,8 @@
     background-color: hsl(49, 100%, 98%);
     padding: 10px 0;
     text-align: center;
+    z-index: 10; /* Ensure it stays above other content */  
+    height: 100px; /* Fixed height */
   }
   .flower-images {
     display: flex;

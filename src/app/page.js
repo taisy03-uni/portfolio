@@ -210,7 +210,7 @@ export default function Home() {
           )}
         </nav>
       </header>
-      <main style={{ backgroundColor: started ? 'hsl(49, 100%, 98%)' : 'transparent',minHeight: '100vh', padding: "20px" }}>
+      <main style={{ backgroundColor: started ? 'hsl(49, 100%, 98%)' : 'transparent',minHeight: '100vh', padding: "20px", paddingBottom: "120px" }}>
         <MainContent started={started} onStart={handleStart} />
       </main>
 
